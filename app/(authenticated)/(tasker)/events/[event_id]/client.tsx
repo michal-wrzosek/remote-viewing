@@ -72,6 +72,7 @@ export function EventClient({ event_id }: { event_id: string }) {
         {dayjs(event.data.created_at).format("DD.MM.YYYY HH:mm")}
       </div>
       <div className="text-xs mb-4">{event.data.owner_email}</div>
+      <div className="text-2xl mb-4">{event.data.description}</div>
       <div className="text-2xl mb-4">
         {event.data.remote_viewing_instructions}
       </div>
