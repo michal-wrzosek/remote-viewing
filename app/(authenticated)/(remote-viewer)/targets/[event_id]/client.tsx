@@ -6,6 +6,7 @@ import { useEventResolutionWithPicture } from "@/lib/use-event-resolution";
 import { useRemoteViewerEventSession } from "@/lib/use-remote-viewer-event-session";
 import { useUser } from "@/lib/use-user";
 import { useEvent } from "@/lib/use-event";
+import { WithLineBreaks } from "@/components/with-line-breaks";
 
 export const TargetClient = ({ event_id }: { event_id: string }) => {
   const event = useEvent({ event_id });
@@ -46,7 +47,9 @@ export const TargetClient = ({ event_id }: { event_id: string }) => {
             <div className="text-xs mb-4">
               {eventSession.data.remote_viewer_email}
             </div>
-            <div className="text-2xl">{eventSession.data.description}</div>
+            <div className="text-2xl">
+              <WithLineBreaks text={eventSession.data.description} />
+            </div>
           </>
         ) : (
           <CreateSessionForm
