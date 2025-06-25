@@ -5,7 +5,7 @@ import { TargetClient } from "./client";
 export default async function TargetPage({
   params,
 }: {
-  params: { event_id: string };
+  params: Promise<{ event_id: string }>;
 }) {
   const supabase = await createClient();
 
@@ -14,5 +14,7 @@ export default async function TargetPage({
     redirect("/auth/login");
   }
 
-  return <TargetClient event_id={params.event_id} />;
+  const { event_id } = await params;
+
+  return <TargetClient event_id={event_id} />;
 }
