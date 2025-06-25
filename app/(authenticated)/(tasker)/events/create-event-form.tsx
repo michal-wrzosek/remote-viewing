@@ -54,6 +54,8 @@ export function CreateEventForm({ onSuccess }: { onSuccess?: () => void }) {
       action={formAction}
       className="w-full flex flex-col gap-4 border rounded-md border-muted-foreground p-4"
     >
+      <h1 className="text-2xl font-bold mb-8">New Event Form</h1>
+
       <div className="grid w-full items-center gap-3">
         <Label htmlFor="name">Event name (just for tasker)</Label>
         <Input id="name" name="name" placeholder="Event name" type="text" />

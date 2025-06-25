@@ -9,6 +9,7 @@ import dayjs from "dayjs";
 import Link from "next/link";
 import { CreateEventForm } from "./create-event-form";
 import { useCallback } from "react";
+import { TaskersRemoteViewers } from "./taskers-remote-viewers";
 
 const EventSessionCount = ({ event_id }: { event_id: string }) => {
   const eventSessions = useEventSessions({ event_id });
@@ -40,21 +41,33 @@ export const EventsClient = () => {
     events.refetch();
   }, [events]);
 
-  if (events.loading) {
+  if (events.loading || user.loading) {
     return <div>Loading...</div>;
   }
 
-  if (events.error) {
-    return <div>Error: {events.error}</div>;
+  if (events.error || user.error) {
+    return <div>Error: {events.error ?? user.error}</div>;
+  }
+
+  if (!user.data?.user) {
+    return <div>Error loading user</div>;
+  }
+
+  if (!events.data) {
+    return <div>Error loading events</div>;
   }
 
   return (
-    <div className="flex flex-col items-center justify-center h-full">
+    <div className="flex flex-col justify-center h-full">
       <CreateEventForm onSuccess={handleFormSuccess} />
 
       <div className="mb-8" />
 
-      <h1 className="text-2xl font-bold mb-4">My events</h1>
+      <TaskersRemoteViewers tasker_id={user.data.user.id} />
+
+      <div className="mb-8" />
+
+      <h1 className="text-2xl font-bold mb-12">My events</h1>
 
       <table className="min-w-full">
         <thead>

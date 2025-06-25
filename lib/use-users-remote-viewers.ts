@@ -1,7 +1,7 @@
 import { SupabaseClient } from "@supabase/supabase-js";
 import { useMemo } from "react";
 import { useSupabaseData } from "./use-supabase-data";
-import { UserRemoteViewer } from "./types";
+import { TaskerRemoteViewer } from "./types";
 
 export function useTaskersRemoteViewers({ tasker_id }: { tasker_id?: string }) {
   const fetch = useMemo(
@@ -17,7 +17,7 @@ export function useTaskersRemoteViewers({ tasker_id }: { tasker_id?: string }) {
     [tasker_id]
   );
 
-  return useSupabaseData<UserRemoteViewer[]>({ fetch });
+  return useSupabaseData<TaskerRemoteViewer[]>({ fetch });
 }
 
 export function useRemoteViewersTaskers({
@@ -38,5 +38,5 @@ export function useRemoteViewersTaskers({
     [remote_viewer_email]
   );
 
-  return useSupabaseData<UserRemoteViewer[]>({ fetch });
+  return useSupabaseData<TaskerRemoteViewer[]>({ fetch });
 }

@@ -14,16 +14,12 @@ export default async function DashboardPage() {
 
   return (
     <div className="w-full grid grid-cols-2 gap-8">
-      <Button asChild variant="secondary">
-        <Link href="/targets" className="w-full h-40">
-          Remote Viewing
-        </Link>
+      <Button asChild variant="secondary" className="w-full h-40">
+        <Link href="/targets">Remote Viewing</Link>
       </Button>
 
-      <Button asChild variant="secondary">
-        <Link href="/events" className="w-full h-40">
-          Tasking
-        </Link>
+      <Button asChild variant="secondary" className="w-full h-40">
+        <Link href="/events">Tasking</Link>
       </Button>
     </div>
   );

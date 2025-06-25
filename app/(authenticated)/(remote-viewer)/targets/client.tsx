@@ -70,8 +70,8 @@ export function TargetsClient() {
   });
 
   return (
-    <div className="flex flex-col items-center justify-center h-full">
-      <h1 className="text-2xl font-bold mb-4">Remote Viewing Targets</h1>
+    <div className="flex flex-col justify-center h-full">
+      <h1 className="text-2xl font-bold mb-12">My Remote Viewing Targets</h1>
 
       <table className="w-full">
         <thead>

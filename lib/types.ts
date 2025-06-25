@@ -41,7 +41,7 @@ export interface EventOutcome {
   picture_description: string;
 }
 
-export interface UserRemoteViewer {
+export interface TaskerRemoteViewer {
   user_id: string;
   remote_viewer_email: string;
   created_at: string;
